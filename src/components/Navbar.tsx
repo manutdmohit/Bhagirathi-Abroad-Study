@@ -22,7 +22,7 @@ const Navbar = () => {
             width={50}
             height={50}
           />
-          <span className="text-xl font-bold text-white ml-3">
+          <span className="text-sm md:text-xl font-bold text-white ml-3">
             <Link href="/">Bhagirathi Abroad Study</Link>
           </span>
         </div>
