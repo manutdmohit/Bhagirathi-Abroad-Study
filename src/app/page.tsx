@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Service from '@/components/Service';
 import GetStarted from '@/components/GetStarted';
 import ContactForm from '@/components/ContactForm';
+import CEOSMessage from '@/components/CEOMessage';
 
 export default function Home() {
   return (
@@ -56,6 +57,7 @@ export default function Home() {
       <GetStarted />
 
       <Service />
+      <CEOSMessage />
       <ContactForm />
     </>
   );
