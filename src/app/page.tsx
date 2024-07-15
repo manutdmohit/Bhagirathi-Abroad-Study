@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Service from '@/components/Service';
 import GetStarted from '@/components/GetStarted';
+import ContactForm from '@/components/ContactForm';
 
 export default function Home() {
   return (
@@ -55,6 +56,7 @@ export default function Home() {
       <GetStarted />
 
       <Service />
+      <ContactForm />
     </>
   );
 }

@@ -16,12 +16,14 @@ const Navbar = () => {
     <nav className="bg-primary sticky top-0 z-50">
       <div className="container mx-auto px-4 py-2 flex justify-between items-center">
         <div className="flex items-center">
-          <Image
-            src="/logo.png"
-            alt="Bhagirathi Abroad Study"
-            width={50}
-            height={50}
-          />
+          <Link href="/">
+            <Image
+              src="/logo.png"
+              alt="Bhagirathi Abroad Study"
+              width={50}
+              height={50}
+            />
+          </Link>
           <span className="text-sm md:text-xl font-bold text-white ml-3">
             <Link href="/">Bhagirathi Abroad Study</Link>
           </span>
