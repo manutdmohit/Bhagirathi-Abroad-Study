@@ -16,8 +16,11 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row md:space-x-16">
             <div className="space-y-4">
               <h3 className="text-white text-xl font-semibold">Contact Us</h3>
-              <p className="text-white">Phone: +123 456 7890</p>
+              <p className="text-white">Phone: +977 980 1711850</p>
               <p className="text-white">Email: info@bhagirathi.com</p>
+              <p className="text-white">
+                Address: Lamki Tikapur Road, Tikapur-1, Kailali
+              </p>
             </div>
             <div className="space-y-4 mt-4 md:mt-0">
               <h3 className="text-white text-xl font-semibold">Quick Links</h3>

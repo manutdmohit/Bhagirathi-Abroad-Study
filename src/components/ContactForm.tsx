@@ -21,6 +21,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import * as z from 'zod';
+import { useRouter } from 'next/navigation';
 
 const contactSchema = z.object({
   name: z.string().min(2, { message: 'Name is required' }),
@@ -31,12 +32,26 @@ const contactSchema = z.object({
 type ContactFormData = z.infer<typeof contactSchema>;
 
 const ContactForm = () => {
+  const router = useRouter();
+
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
+    defaultValues: {
+      name: '',
+      email: '',
+      phone: '',
+    },
   });
 
   const handleSubmit = (data: z.infer<typeof contactSchema>) => {
     console.log('Form submitted:', data);
+
+    // Reset the form fields to their initial values
+    form.reset();
+
+    alert('Thank you for submitting your details');
+
+    router.push('/');
   };
 
   return (
