@@ -12,7 +12,7 @@ const CEOSMessage = () => {
           <div className="flex items-center">
             <div className="w-16 h-16 mr-4 overflow-hidden rounded-full">
               <Image
-                src="/ceo.png" // Replace with the path to the CEO's image
+                src="/ceo.png"
                 alt="CEO Image"
                 width={64}
                 height={64}
