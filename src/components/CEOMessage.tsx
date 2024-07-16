@@ -7,7 +7,7 @@ import Image from 'next/image';
 const CEOSMessage = () => {
   return (
     <div className="container mx-auto py-8">
-      <Card className="bg-gray-100 shadow-lg rounded-lg p-6 mx-4 md:mx-auto max-w-3xl">
+      <Card className="bg-gray-100 shadow-lg rounded-lg p-6 w-full mx-auto md:max-w-7xl text-left">
         <CardHeader>
           <div className="flex items-center">
             <div className="w-16 h-16 mr-4 overflow-hidden rounded-full">
