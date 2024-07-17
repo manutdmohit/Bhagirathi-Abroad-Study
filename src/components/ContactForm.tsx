@@ -10,7 +10,6 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import {
   Form,
@@ -26,7 +25,7 @@ import { useRouter } from 'next/navigation';
 const contactSchema = z.object({
   name: z.string().min(2, { message: 'Name is required' }),
   email: z.string().email({ message: 'Invalid email address' }),
-  phone: z.string().min(1, { message: 'Message is required' }),
+  phone: z.string().min(1, { message: 'Phone is required' }),
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
@@ -49,21 +48,24 @@ const ContactForm = () => {
     // Reset the form fields to their initial values
     form.reset();
 
-    alert('Thank you for submitting your details');
+    alert('Thank you for contacting us');
 
     router.push('/');
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 mt-10">
-      <p className="text-blue-700 text-xl font-serif font-medium leading-snug px-6 py-10">
-        Book your seat or contact us today to learn more about our services and
-        how we can help you achieve your goals. Whether you need assistance with
-        visa applications, language classes, or finding the right educational
-        institution, we are here to support you every step of the way. Get in
-        touch with us to schedule an appointment or for any inquiries you may
-        have.
-      </p>
+    <div className="grid grid-cols-1 md:grid-cols-2 mt-10 gap-8">
+      <div className="w-full h-64 md:h-auto ml-2 mr-2 md:ml-4">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14021.1575691107!2d81.1187379!3d28.5310201!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39a20d55cc73966d%3A0x6792791c0a76fa59!2sBhagirathi%20Abroad%20Study!5e0!3m2!1sen!2snp!4v1721188238621!5m2!1sen!2snp"
+          width="100%"
+          height="100%"
+          style={{ border: 0 }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
 
       <Card className="w-full max-w-sm mx-auto">
         <CardHeader>
@@ -99,7 +101,7 @@ const ContactForm = () => {
                     <FormControl>
                       <Input
                         placeholder="john@doe.com"
-                        type="text"
+                        type="email"
                         {...field}
                       />
                     </FormControl>
