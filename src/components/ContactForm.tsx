@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import {
@@ -21,6 +22,7 @@ import {
 } from '@/components/ui/form';
 import * as z from 'zod';
 import { useRouter } from 'next/navigation';
+import axios, { AxiosError } from 'axios';
 
 const contactSchema = z.object({
   name: z.string().min(2, { message: 'Name is required' }),
@@ -31,6 +33,8 @@ const contactSchema = z.object({
 type ContactFormData = z.infer<typeof contactSchema>;
 
 const ContactForm = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const router = useRouter();
 
   const form = useForm<ContactFormData>({
@@ -42,15 +46,32 @@ const ContactForm = () => {
     },
   });
 
-  const handleSubmit = (data: z.infer<typeof contactSchema>) => {
+  const handleSubmit = async (data: z.infer<typeof contactSchema>) => {
+    setIsSubmitting(true);
+
     console.log('Form submitted:', data);
 
-    // Reset the form fields to their initial values
-    form.reset();
+    try {
+      const response = await axios.post('/api/send-message', data);
+      // Reset the form fields to their initial values
+      form.reset();
 
-    alert('Thank you for contacting us');
+      alert('Thank you for contacting us');
 
-    router.push('/');
+      router.push('/');
+    } catch (error) {
+      console.error('Error in sign of user', error);
+      const axiosError = error as AxiosError;
+
+      alert('Failed to send message');
+      // toast({
+      //   title: 'Signup failed',
+      //   description: errorMessage,
+      //   variant: 'destructive',
+      // });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
