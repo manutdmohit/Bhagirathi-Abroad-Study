@@ -80,7 +80,7 @@ const Footer = () => {
               </ul>
             </div>
 
-            <div className="space-y-4 text-left">
+            <div className="space-y-4 mt-4 md:mt-0 text-left">
               <h3 className="text-white text-xl font-semibold">Contact Us</h3>
               <Link href="tel:+9779801711850">
                 <p className="text-white mt-4">Phone: +977 980 1711850</p>
